@@ -1,30 +1,25 @@
 package org.yashgamerx.dsa;
 
 /**
- * DSAPrinter.java
+ * DSAPrinter.java <br><br>
  *
- * Responsible for all console output produced during a DSA run.
+ * Responsible for all console output produced during a DSA run. <br><br>
  *
- * Keeping every System.out call in one class means:
+ * Keeping every System.out call in one class means: <br><br>
  *   - the computation classes (DSAParams, DSASigningEngine, DSAVerifier,
- *     DSARunner) remain free of I/O and are straightforward to unit-test;
- *   - changing the output format requires edits in exactly one place.
+ *     DSARunner) remain free of I/O and are straightforward to unit-test; <br>
+ *   - changing the output format requires edits in exactly one place. <br><br>
  *
  * The single public entry point is {@link #print(DSARunner.RunResult)},
  * which walks through a completed {@link DSARunner.RunResult} and prints
- * each of the four required steps.
+ * each of the four required steps. <br>
  */
 public final class DSAPrinter {
 
     private static final int SEPARATOR_WIDTH = 65;
     private static final String SEPARATOR    = "=".repeat(SEPARATOR_WIDTH);
 
-    // Singleton -- this class is fully stateless.
     private DSAPrinter() {}
-
-    // -------------------------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------------------------
 
     /**
      * Prints the full output for one DSA run.
@@ -46,10 +41,6 @@ public final class DSAPrinter {
         printStep4(result);
         System.out.println();
     }
-
-    // -------------------------------------------------------------------------
-    // Private helpers -- one method per logical section
-    // -------------------------------------------------------------------------
 
     private static void printHeader(DSARunner.RunResult result) {
         System.out.println(SEPARATOR);

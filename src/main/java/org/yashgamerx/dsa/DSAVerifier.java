@@ -4,23 +4,23 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * DSAVerifier.java
+ * DSAVerifier.java <br><br>
  *
- * Stateless service that verifies a DSA signature against a message hash.
+ * Stateless service that verifies a DSA signature against a message hash. <br>
  *
- * DSA Verification Algorithm
- * ---------------------------
- * Given public parameters (p, q, g, y), a signature (r, s), and H(M):
+ * DSA Verification Algorithm <br>
+ * ---------------------------<br>
+ * Given public parameters (p, q, g, y), a signature (r, s), and H(M): <br><br>
  *
- *   w  = s^-1 mod q
- *   u1 = H(M) * w mod q
- *   u2 = r * w mod q
- *   v  = (g^u1 * y^u2 mod p) mod q
+ *   w  = s^-1 mod q <br>
+ *   u1 = H(M) * w mod q <br>
+ *   u2 = r * w mod q <br>
+ *   v  = (g^u1 * y^u2 mod p) mod q <br><br>
  *
- * The signature is valid if and only if v == r.
+ * The signature is valid if and only if v == r. <br><br>
  *
- * Security property verified by Step 4 of the homework
- * ------------------------------------------------------
+ * Security property verified by Step 4 of the homework <br>
+ * ------------------------------------------------------ <br>
  * If an attacker (BG) obtains a valid signature (r, s) for H(M1) and tries
  * to use it as a signature for a different message H(M2), the verification
  * must fail. The test suite in {@code DSAVerifierTest} explicitly covers this.

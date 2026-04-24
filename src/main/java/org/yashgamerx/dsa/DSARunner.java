@@ -4,21 +4,21 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * DSARunner.java
+ * DSARunner.java <br>
  *
  * Orchestrates one complete DSA demonstration run across the four steps
- * required by the assignment:
+ * required by the assignment: <br><br>
  *
- *   Step 1 - Derive and report g and y.
- *   Step 2 - Sign H(M1); report (r, s).
- *   Step 3 - Verify (r, s) against H(M1) -- expected: VALID.
- *   Step 4 - Verify (r, s) against H(M2) -- expected: INVALID.
+ *   Step 1 - Derive and report g and y. <br>
+ *   Step 2 - Sign H(M1); report (r, s). <br>
+ *   Step 3 - Verify (r, s) against H(M1) -- expected: VALID. <br>
+ *   Step 4 - Verify (r, s) against H(M2) -- expected: INVALID. <br>
  *            This simulates an attacker (BG) attempting to reuse a
- *            legitimate signature for a different message.
+ *            legitimate signature for a different message. <br><br>
  *
  * This class is purely concerned with the computation flow. All console
  * output is delegated to {@link DSAPrinter}, keeping this class testable
- * without any I/O side effects.
+ * without any I/O side effects. <br><br>
  *
  * If the signing step yields a degenerate signature (returned as null by
  * {@link DSASigningEngine}), the run is halted at Step 2 and the result
@@ -26,12 +26,8 @@ import java.util.Objects;
  */
 public final class DSARunner {
 
-    // -------------------------------------------------------------------------
-    // Result record
-    // -------------------------------------------------------------------------
-
     /**
-     * Captures the outcome of one full DSA run.
+     * Captures the outcome of one full DSA run. <br><br>
      *
      * All fields except {@code params} and {@code label} may be null when the
      * run is cut short by a degenerate signing result.
@@ -89,19 +85,11 @@ public final class DSARunner {
         }
     }
 
-    // -------------------------------------------------------------------------
-    // Singleton
-    // -------------------------------------------------------------------------
-
     private DSARunner() {}
-
-    // -------------------------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------------------------
 
     /**
      * Executes all four DSA steps for the given inputs and returns a
-     * {@link RunResult} describing every computed value.
+     * {@link RunResult} describing every computed value. <br><br>
      *
      * The caller decides what to do with the result (print it, assert on it,
      * etc.). No output is produced by this method itself.

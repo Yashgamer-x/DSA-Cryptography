@@ -4,25 +4,25 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * DSASigningEngine.java
+ * DSASigningEngine.java <br>
  *
- * Stateless service that computes a DSA signature for a given message hash.
+ * Stateless service that computes a DSA signature for a given message hash. <br><br>
  *
- * DSA Signing Algorithm
- * ----------------------
- * Given domain parameters (p, q, g), private key x, nonce k,
- * and message hash H(M):
+ * DSA Signing Algorithm <br>
+ * ---------------------- <br>
+ * Given domain parameters (p, q, g), private key x, nonce k, <br>
+ * and message hash H(M): <br><br>
  *
- *   r = (g^k mod p) mod q
- *   s = k^-1 * (H(M) + x*r) mod q
+ *   r = (g^k mod p) mod q <br>
+ *   s = k^-1 * (H(M) + x*r) mod q <br><br>
  *
- * Signature = (r, s)
+ * Signature = (r, s) <br>
  *
- * Degenerate Cases
- * ----------------
- * The algorithm can produce a degenerate (unusable) signature if:
- *   - r == 0  : g^k happened to be a multiple of q (extremely rare in practice)
- *   - s == 0  : H(M) + x*r ≡ 0 (mod q)
+ * Degenerate Cases <br>
+ * ---------------- <br>
+ * The algorithm can produce a degenerate (unusable) signature if: <br>
+ *   - r == 0  : g^k happened to be a multiple of q (extremely rare in practice) <br>
+ *   - s == 0  : H(M) + x*r ≡ 0 (mod q) <br><br>
  *
  * In either case {@link #sign} returns {@code null} to signal the failure.
  * The caller must handle this: in real implementations, a new random k is

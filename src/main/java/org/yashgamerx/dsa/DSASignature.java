@@ -4,15 +4,15 @@ import java.math.BigInteger;
 import java.util.Objects;
 
 /**
- * DSASignature.java
+ * DSASignature.java <br><br>
  *
- * Immutable value object representing a DSA signature as the pair (r, s).
+ * Immutable value object representing a DSA signature as the pair (r, s). <br><br>
  *
- * In DSA, signing a message hash H(M) with nonce k produces:
- *   r = (g^k mod p) mod q
- *   s = k^-1 * (H(M) + x*r) mod q
+ * In DSA, signing a message hash H(M) with nonce k produces: <br>
+ *   r = (g^k mod p) mod q <br>
+ *   s = k^-1 * (H(M) + x*r) mod q <br><br>
  *
- * A signature is considered degenerate when r == 0 or s == 0.
+ * A signature is considered degenerate when r == 0 or s == 0. <br>
  * The {@link DSASigningEngine} returns {@code null} in the degenerate case
  * rather than constructing an invalid {@code DSASignature}.
  */
